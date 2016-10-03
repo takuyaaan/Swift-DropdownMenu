@@ -1,5 +1,5 @@
 /*
- MIT License
+ The MIT License
  
  Copyright (c) 2016 Takuyaaan
  
@@ -25,7 +25,7 @@
 import UIKit
 import QuartzCore
 
-@objc protocol DropdownListMenuDelegate : NSObjectProtocol {
+@objc protocol DropdownListMenuDelegate {
     
     optional func dropdownListMenuWillDisplay()
     optional func dropdownListMenuWillDismiss()
@@ -34,19 +34,16 @@ import QuartzCore
 
 class DropdownMenu: UIBarButtonItem {
     
-    final let kvListRowHeight = 50
-
     var superView: UIView!                        // parentView
     var menuDelegate: DropdownListMenuDelegate!
     
-    var isShowDisplay: Bool = false
-
     var tableSelectedColor = UIColor.grayColor()
     var menuSeparatorColor = UIColor.darkGrayColor()
     var menuTableBackgroundColor = UIColor.whiteColor()
     var menuBackgroundColor = UIColor.lightGrayColor()
     var menuLabelColor = UIColor.darkTextColor()
 
+    private var isShowDisplay: Bool = false
     private var dropList: [AnyObject]!            // drop menu list
     private var displayNumOfRows = 0              // display count
     private var heightOfListItem = 0              // list item height
@@ -55,6 +52,8 @@ class DropdownMenu: UIBarButtonItem {
     private var fontOfListItem: UIFont!           // list item font size
     private var baseView: UIView!
     private var tableView: UITableView!
+    
+    final let kvListRowHeight = 50
     
     override init() {
         super.init()
